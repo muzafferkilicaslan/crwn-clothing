@@ -5,7 +5,9 @@ import {
   useLocation,
   useNavigate,
   useParams,
-  Link
+  Link,
+  Navigate,
+  Route
 } from "react-router-dom";
 
 
@@ -27,8 +29,11 @@ function withRouter(Component) {
 //onClick={() => history.push(`${match.url}${linkUrl}`)}>
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
-  <div className={`${size} menu-item`} 
-  onClick={() => <Link to='/hats'></Link>}>
+
+  // <Link to='/shop'>
+  <div className={`${size} menu-item`}
+  onClick={()=>console.log(linkUrl)}
+  >
     <div
       className='background-image'
       style={{
@@ -40,6 +45,7 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
       <span className="subtitle">SHOP NOW</span>
     </div>
   </div>
+  // </Link>
 );
 
 export default withRouter(MenuItem);
