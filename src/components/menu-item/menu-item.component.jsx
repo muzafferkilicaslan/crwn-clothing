@@ -35,10 +35,10 @@ function withRouter(Component) {
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
 
   
-
+  
   //<Link to={title}>
   <div className={`${size} menu-item`}
-  onClick={()=>console.log(title)}
+  onClick={()=>(console.log(title))}
   >
     <div
       className='background-image'
@@ -47,8 +47,10 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
       }}
     />    
     <div className="content">
+      <Link to={title}>
       <h1 className="title">{title.toUpperCase()}</h1>
       <span className="subtitle">SHOP NOW</span>
+      </Link>
     </div>    
     </div>
     //</Link>  
