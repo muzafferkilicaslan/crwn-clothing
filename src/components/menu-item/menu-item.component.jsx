@@ -10,6 +10,8 @@ import {
   Route
 } from "react-router-dom";
 
+ 
+
 
 function withRouter(Component) {
   function ComponentWithRouterProp(props) {
@@ -28,24 +30,28 @@ function withRouter(Component) {
 
 //onClick={() => history.push(`${match.url}${linkUrl}`)}>
 
+
+
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
 
-  // <Link to='/shop'>
+  
+
+  //<Link to={title}>
   <div className={`${size} menu-item`}
-  onClick={()=>console.log(linkUrl)}
+  onClick={()=>console.log(title)}
   >
     <div
       className='background-image'
       style={{
         backgroundImage: `url(${imageUrl})`,
       }}
-    />
+    />    
     <div className="content">
       <h1 className="title">{title.toUpperCase()}</h1>
       <span className="subtitle">SHOP NOW</span>
+    </div>    
     </div>
-  </div>
-  // </Link>
+    //</Link>  
 );
 
 export default withRouter(MenuItem);
