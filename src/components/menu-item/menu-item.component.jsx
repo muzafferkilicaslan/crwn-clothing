@@ -1,45 +1,12 @@
 import React from "react";
 
 import "./menu-item.styles.scss";
-import {
-  useLocation,
-  useNavigate,
-  useParams,
-  Link,
-  Navigate,
-  Route
-} from "react-router-dom";
-
- 
-
-
-function withRouter(Component) {
-  function ComponentWithRouterProp(props) {
-    let location = useLocation();
-    let navigate = useNavigate();
-    let params = useParams();
-    return (
-      <Component
-        {...props}
-        router={{ location, navigate, params }}
-      />
-    );
-  }
-  return ComponentWithRouterProp;
-  }
-
-//onClick={() => history.push(`${match.url}${linkUrl}`)}>
-
+import {withRouter} from "react-router-dom";
 
 
 const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
-
-  
-  
-  //<Link to={title}>
   <div className={`${size} menu-item`}
-  onClick={()=>(console.log(title))}
-  >
+  onClick={() => history.push(`${match.url}${linkUrl}`)}>
     <div
       className='background-image'
       style={{
@@ -47,13 +14,10 @@ const MenuItem = ({ title, imageUrl, size, history, linkUrl, match}) => (
       }}
     />    
     <div className="content">
-      <Link to={title}>
       <h1 className="title">{title.toUpperCase()}</h1>
       <span className="subtitle">SHOP NOW</span>
-      </Link>
     </div>    
-    </div>
-    //</Link>  
+    </div>  
 );
 
 export default withRouter(MenuItem);
